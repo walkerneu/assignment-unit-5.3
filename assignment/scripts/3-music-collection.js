@@ -4,9 +4,9 @@ let myCollection = []
 
 function addToCollection(collection, title, artist, yearPublished) {
     let record = {
-      albumTitle: title,
-      albumArtist: artist,
-      albumYear: yearPublished 
+      title: title,
+      artist: artist,
+      yearPublished: yearPublished 
     }
     collection.push(record);
     console.log(record);
@@ -23,6 +23,29 @@ addToCollection(myCollection, 'Like This', 'Shortie No Mass', 2005)
 
 console.log(myCollection);
 
+function showCollection(collection) {
+  for (let index of collection){
+    console.log(`${index.title} by ${index.artist}, published in ${index.yearPublished}`);
+  }
+};
+
+showCollection(myCollection);
+
+
+function findByArtist(collection, artist){
+  let artistArray = [];
+  for (i = 0; i < collection.length; i++){
+    if(collection[i].artist === artist){
+      artistArray.push(collection[i]);
+    }
+  }
+  console.log(artistArray);
+  return artistArray;
+}
+
+findByArtist(myCollection, 'Young Thug');
+findByArtist(myCollection, 'Engelbert Humperdinck');
+findByArtist(myCollection, 'Heaven 17');
 
 
 
